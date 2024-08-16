@@ -67,7 +67,7 @@ export class OnepayPaymentService {
         code: IpnResponseCode.NO_TXN_RESPONSE,
       };
     }
-    const vpcSecureHash = requestParams("vpc_SecureHash");
+    const vpcSecureHash = requestParams["vpc_SecureHash"];
     const exceptHashFields = ["vpc_SecureHash"];
     const responseFields: Record<string, string> = {};
     const hashFields = keys.filter(
@@ -76,13 +76,14 @@ export class OnepayPaymentService {
     hashFields.forEach((field: string) => {
       responseFields[field] = requestParams[field];
     });
+
     const onepayService = new OnepayService();
     const secureHashFromParams = onepayService.hashAllFields(
       responseFields,
       config.vpcSecureSecret
     );
 
-    if (secureHashFromParams !== vpcSecureHash) {
+    if (secureHashFromParams.toUpperCase() !== vpcSecureHash.toUpperCase()) {
       return {
         isValid: false,
         code: IpnResponseCode.INVALID_HASH,

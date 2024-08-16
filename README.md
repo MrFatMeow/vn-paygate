@@ -38,8 +38,12 @@ VPC_ACCESS_CODE=
 VPC_MERCHANT=
 VPC_PAYMENT_CLIENT_URL=
 VPC_SECURE_SECRET=
-VPC_PROMOTION_LIST=null
-VPC_THEME=null
+```
+
+If you want to config promotion
+```
+  VPC_PROMOTION_LIST=string
+  VPC_THEME=string
 ```
 
 Set these variables in your `.env` file or directly in your environment.
@@ -109,13 +113,11 @@ const ipnData = {
   // other parameters...
 };
 
-
 export interface IpnResponse {
   isValid: boolean;
   code: string | null;
   responseData?: Record<string, string>;
 }
-
 
 const isValid = OnepayPaymentService.ipn(ipnData);
 
