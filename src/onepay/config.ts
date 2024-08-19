@@ -14,6 +14,7 @@ export const config = {
   vpcSecureSecret: process.env.VPC_SECURE_SECRET || "",
   vpcPromotionList: process.env.VPC_PROMOTION_LIST || null,
   vpcTheme: process.env.VPC_THEME || null,
+  vpcCallbackURL: process.env.VPC_CALLBACK_URL || null
 };
 
 

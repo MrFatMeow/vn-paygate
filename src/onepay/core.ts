@@ -27,6 +27,10 @@ export class OnepayPaymentService {
       Title: title,
     };
 
+    if (config.vpcCallbackURL){
+      fields.vpc_CallbackURL = config?.vpcCallbackURL
+    }
+
     if (config.vpcPromotionList) {
       fields.vpc_Promotion_List = config.vpcPromotionList;
     }
