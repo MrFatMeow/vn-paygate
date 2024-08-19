@@ -46,6 +46,13 @@ If you want to config promotion
   VPC_THEME=string
 ```
 
+For SIT/UAT environment, if you want to test your IPN api, you can config your ipn callback endpoint by adding this field in .env file
+```
+  VPC_CALLBACK_URL=YOUR_IPN_ENDPOINT
+```
+
+
+
 Set these variables in your `.env` file or directly in your environment.
 
 ## Creating a Payment URL
